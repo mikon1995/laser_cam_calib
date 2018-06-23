@@ -1,0 +1,16 @@
+#include <stdio.h> //standard input&output
+#include <stdlib.h>
+#include <string>
+#include <iostream>
+#include <fstream> 
+#include <stdio.h>
+#include <dirent.h>
+using namespace std;
+int main (int argc, char** argv){
+	string arg= "0509";
+	string filename = "/home/sensetime/software/lcct/lcct_1.1/src/" + argv + "/test.pcd";
+	string t = filename.substr(0, filename.find(".pcd"));
+    string dst_filename = t.insert(t.find(argv) + argv.length(), "_xyz") + ".xyz";
+    cout << dst_filename << endl;
+
+	}

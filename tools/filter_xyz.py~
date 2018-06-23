@@ -1,0 +1,33 @@
+import glob
+import os
+import numpy as np
+
+datapath = '/home/sensetime/laser_cam_calib/sample data/caliblidar/0509_xyz'
+src = '0509_xyz'
+dst = '0509_filtxyz'
+src_path = os.path.join(datapath, '0509_xyz')
+dst_path = os.path.join(datapath, '0509_filtxy')
+
+def mkdir(path):
+    # print os.path.split(path)
+    if os.path.split(path)[1] != '':
+        mkdir(os.path.split(path)[0])
+    else:
+        return
+    if not os.path.exists(path):
+        os.mkdir(path)
+mkdir(dst_path)
+
+for txt in sorted(glob.glob(src_path + '/*.xyz')):
+    f = open(txt.replace(src, dst), 'w')
+    data = np.loadtxt(open(txt), delimiter=' ')
+    rows = data.shape[0]
+    for i in range(rows):
+
+        if -4 <= data[i, 0] and data[i, 0] <= 4 and 4 <= data[i, 1] and data[i, 1] <= 7 :
+
+            f.write(str(data[i, 0]) + ' ' + str(data[i, 1]) + ' ' + str(data[i, 2])+'\n')
+        if data[i, 0] == ' ':
+            break
+    f.close()
+    print txt
