@@ -26,12 +26,12 @@
 1. .pcd转.xyz：从每一帧的pcd文件中提取三维坐标点信息
    运行 make  ./pcd2xyz 0509
 *  在此可通过arg 参数选择日期文件夹中的数据
-   原始文件夹：sample data/caliblidar/0509
-   目标文件夹：sample data/caliblidar/0509_xyz
+   原始文件夹：/home/sensetime/laser_cam_calib/sample data/caliblidar/0509
+   目标文件夹：/home/sensetime/laser_cam_calib/sample data/caliblidar/0509_xyz
 2. [optional] 预处理所有.xyz文件，选取一定范围内的数据
    运行 filter_xyz.py
-   原始文件夹：sample data/caliblidar/0509_xyz
-   目标文件夹：sample data/caliblidar/0509_filtxyz
+   原始文件夹：/home/sensetime/laser_cam_calib/sample data/caliblidar/0509_xyz
+   目标文件夹：/home/sensetime/laser_cam_calib/sample data/caliblidar/0509_filtxyz
 3. 通过 matlab plot 画出点云图，手工选取标定板上的变量, 并创建并保存至相应的  laser_targetX.xyz文件
    运行 plotxyz.m 
 *  需把plotxyz.m放置在*.xyz文件夹中
